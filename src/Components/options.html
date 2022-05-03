@@ -1,0 +1,43 @@
+<!-- const Post = (props) => {
+
+function dragOver(event) {
+event.preventDefault()
+}
+
+function handleDrag(event) {
+event.preventDefault();
+event.dataTransfer.setData('drag-item', props.dataItem)
+console.log("X: " + event.clientX + " | Y: " + event.clientY)
+}
+
+function drop(event) {
+const dropped = event.dataTransfer.getData('drag-item', props.dropped)
+if (dropped) {
+props.onItemDropped(dropped)
+}
+}
+
+// For any react element to be draggable, it needs to have a ref property which will be dragRef returned from the
+useDrag hook
+
+
+return (
+
+<div className="Post" draggable onDragStart={handleDrag} onDrag={handleDrag} style={{top:`${props.y}px`,
+    left:`${props.x}px`}} onDragOver={dragOver} onDrop={drop}>
+    <form action="">
+
+
+        <textarea defaultValue={props.body}name="PostIt" cols="40" rows="10"></textarea>
+        <button className="submitButton">Post</button>
+
+    </form>
+    <DropTarget onItemDropped={drop}>
+        <div>...</div>
+    </DropTarget>
+</div>
+
+)
+}
+
+export default Post -->
