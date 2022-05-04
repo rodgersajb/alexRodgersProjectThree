@@ -8,7 +8,7 @@ function Post(props) {
         props.onDrag(state);
     });
 
-     const [ time, setTime] = useState([])
+    //  const [ time, setTime] = useState([])
 
     // useEffect(() => {
     //     axios({
