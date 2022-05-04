@@ -8,20 +8,20 @@ function Post(props) {
         props.onDrag(state);
     });
 
-    //  const [ time, setTime] = useState([])
+     const [ time, setTime] = useState([])
 
-    // useEffect(() => {
-    //     axios({
-    //         url: 'https://rb7paj3rwfgcelny6aaqqagxna0idefd.lambda-url.us-east-1.on.aws/'
-    //     }).then((res) => {
-    //         const timeStamp = res.data;
-    //         const newTimeStamp = new Date(timeStamp * 1000);
-    //         console.log(newTimeStamp)
+    useEffect(() => {
+        axios({
+            url: 'https://rb7paj3rwfgcelny6aaqqagxna0idefd.lambda-url.us-east-1.on.aws/'
+        }).then((res) => {
+            const timeStamp = res.data;
+            const newTimeStamp = new Date(timeStamp * 1000);
+            console.log(newTimeStamp)
             
 
-    //         setTime(newTimeStamp)
-    //     })
-    // }, [])
+            setTime(newTimeStamp)
+        })
+    }, [])
     return (
         <div
             id={props.id}
@@ -34,7 +34,7 @@ function Post(props) {
             }}
             {...bind()}
         >   
-            <span className="time">{props.datetime}</span>
+            <span className="time">{time}</span>
             <textarea
                 placeholder="Write something!"
                 onChange={(event) => {
