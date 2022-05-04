@@ -1,4 +1,5 @@
 .Post {
+    
     position: absolute;
     background: #ffff99;
     box-sizing: border-box;
@@ -6,10 +7,18 @@
     border-radius: 0.5rem;
     padding: 1rem;
     border: 2px solid black;
+    &:hover,
+    &focus {
+        cursor: pointer;
+        z-index: 999;
+        width: 315px;
+        height: 315px;
+        
+    }
 
     textarea {
         width: 100%;
-        height: 100%;
+        height: 95%;
         background: none;
         resize: none;
         padding: 0;
@@ -21,5 +30,9 @@
             box-shadow: none;
             outline: none;
         }
+    }
+    .date {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
     }
 }

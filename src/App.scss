@@ -11,6 +11,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 body {
   background-image: url(../images/board.jpg);
   background-size: cover;
+  font-family: monospace;
   
 }
 
@@ -47,8 +48,7 @@ form {
   height: 300px;
   width: 300px;
   position: absolute;
-  background: rgb(82, 178, 209);
-  box-sizing: border-box;
+  background: rgb(82, 178, 209);  
   touch-action: none;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -58,6 +58,7 @@ form {
   p {
     font-size: 1.2rem;
     line-height: 1.7rem;
+    margin-top: 0;
     .Juno {
       color: #ff0;
       text-align: center;
@@ -65,10 +66,26 @@ form {
     }
   }
 }
+.SmallOGPost {
+  height: 100px;
+  width: 100px;
+  background: pink;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.2rem;
+  position: absolute;
+  bottom:20%;
+  right: 70%;  
+  
+}
 
 @media (max-width: 620px) {
   .OGPost {
     right: 30%;
+  }
+  .SmallOGPost {
+    right: 15%
   }
 }
 
@@ -89,11 +106,17 @@ form {
   .OGPost {
     right: 7%;
   }
+  .SmallOGPost {
+    right: 50%
+  }
 }
 
 @media (max-width: 320px) {
   .OGPost {
 
     right: 4%;
+  }
+  .SmallOGPost {
+    right: 15%;
   }
 }
