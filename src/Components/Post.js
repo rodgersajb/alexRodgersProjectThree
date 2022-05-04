@@ -1,7 +1,7 @@
 import { useDrag } from "@use-gesture/react";
 import "./Post.scss";
-import axios from "axios";
-import { useEffect, useState} from 'react'
+// import axios from "axios";
+// import { useEffect, useState} from 'react'
 
 function Post(props) {
     const bind = useDrag((state) => {
