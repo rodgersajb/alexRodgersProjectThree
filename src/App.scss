@@ -81,3 +81,35 @@ form {
     }
   }
 }
+
+@media (max-width: 620px) {
+  .OGPost {
+    right: 30%;
+  }
+}
+
+@media (max-width: 500px) {
+  .OGPost {
+
+    right: 25%;
+  }
+}
+
+@media (max-width: 396px) {
+  .OGPost {
+    right: 13%
+  }
+}
+
+@media (max-width: 350px) {
+  .OGPost {
+    right: 7%;
+  }
+}
+
+@media (max-width: 320px) {
+  .OGPost {
+
+    right: 4%;
+  }
+}
