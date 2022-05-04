@@ -1,43 +1,79 @@
-import Post from './Post'
-import Button from './Button'
-import { useState } from 'react'
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
+import "./Board.scss";
+import Post from "./Post";
+import AddPostButton from "./AddPostButton";
 
+const POST_WIDTH = 300;
+const POST_HEIGHT = 300;
 
-// install react-dnd and react-dnd-html5-backend
+function Board() {
+    const [posts, setPosts] = useState([]);
 
+    const onAddPost = () => {
+    const newPosts = [...posts];
 
-// Wrap the container component with dnd Provider
+    axios
+        .get(
+        "https://rb7paj3rwfgcelny6aaqqagxna0idefd.lambda-url.us-east-1.on.aws/"
+        )
+        .then((response) => {
+        const timestamp = response.data;
+        const date = new Date(timestamp * 1000);
 
+        const post = {
+            id: uuidv4(),
+            x: Math.floor(Math.random() * (window.innerWidth - POST_WIDTH)),
+            y: Math.floor(Math.random() * (window.innerHeight - POST_HEIGHT)),
+            body: "",
+            date: date,
+        };
+        newPosts.push(post);
+        setPosts(newPosts);
+    });
+};
 
-const Board = () => {
-    
+    const onPostDrag = (index, state) => {
+    const newPosts = [...posts];
+    newPosts[index].x += Math.round(state.delta[0]);
+    newPosts[index].y += Math.round(state.delta[1]);
+    setPosts(newPosts);
+    };
 
-
-
-const boardPixel = (number) => {
-    Math.floor(Math.random() * 1500)
-    console.log(number)
-}
-
-
+    const onPostChange = (index, target) => {
+    const newPosts = [...posts];
+    newPosts[index].body = target.value;
+    setPosts(newPosts);
+    };
 
     return (
-    
-        <div className="Board">
-            {/* {Board.map((boardPost) => {
-                return (
-                    < Post x={boardPixel} y={boardPixel} body='Hello, there'/>
-                )
-            })} */}
-            < Post x={100} y={400} body='Hey John Again' />
-            < Post x={400} y={200} body='Hey Jin Again'/>
-
-            < Button />
-            
-        </div>
-
-    
-    )
+    <div className="Board">
+        <AddPostButton onClick={onAddPost} />
+        {posts.map((post, index) => {
+        return (
+            <Post
+            {...{
+                key: post.id,
+                id: post.id,
+                x: post.x,
+                y: post.y,
+                body: post.body,
+                date: post.date,
+                width: POST_WIDTH,
+                height: POST_HEIGHT,
+                onDrag: (state) => {
+                    onPostDrag(index, state);
+                },
+                onChange: (target) => {
+                    onPostChange(index, target);
+            },
+            }}
+        />
+        );
+      })}
+    </div>
+  );
 }
 
-export default Board
+export default Board;
