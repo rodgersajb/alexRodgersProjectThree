@@ -1,8 +1,12 @@
 import { useDrag } from "@use-gesture/react";
 import "./Post.scss";
 
+
+// Set max character length to 100
 const MAX_LENGTH = 100;
 
+
+// User Drag Hook
 function Post(props) {
     const bind = useDrag((state) => {
     props.onDrag(state);
@@ -18,6 +22,7 @@ function Post(props) {
         width: `${props.width}px`,
         height: `${props.height}px`,
     }}
+    // Bind function to allow user to continuously drag across the page
     {...bind()}
     >
     
